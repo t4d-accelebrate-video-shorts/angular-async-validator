@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-
-import { ConsoleLogger } from './services/console-logger.service';
-// import { HttpLogger } from './services/http-logger.service';
+import { HttpClient } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,9 @@ import { ConsoleLogger } from './services/console-logger.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'demo-app';
 
-  constructor(private logger: ConsoleLogger) {
-    this.logger.info('test');
+  public colorName = new FormControl('');
+
+  constructor(private httpClient: HttpClient) {
   }
 }
